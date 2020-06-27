@@ -42,7 +42,7 @@ border: 1px solid blue;
 position: absolute;
 background-color: lightyellow;
 padding: 5px;
-left: -1000px;
+left: -100vh;
 border: 1px dashed gray;
 visibility: hidden;
 color: black;
