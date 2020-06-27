@@ -194,7 +194,7 @@ class Item:
 
 def make_tables():
     dirname = os.path.dirname(__file__)
-    searchname = os.path.join(dirname, 'json_backup', '*')
+    searchname = os.path.join(dirname, 'json', '*')
     filenames = glob.iglob(searchname)
 
     #print(Item("").__class__)
