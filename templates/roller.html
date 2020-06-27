@@ -61,22 +61,39 @@ Otherdust Item Roller
 {% endblock %}
 
 {% block body %}
-
-<h1>Otherdust Item Roller</h1>
-<div class="container">
-    <form class="form-plunder" role="form" id="plunder_form">
-        <h2 class="form-plunder-heading">Select Plunder</h2>
-        <select id="plunder_ID" name="plunder_ID">
-            {% for ID in table_dict["plunder"].entries.keys() %}
-                <option value="{{ ID }}">{{ ID }}: {{ table_dict["plunder"].examples[ID] }}</option>
-            {% endfor %}
-        </select>
-        <button class="btn btn-lg btn-primary btn-block" type="button" id="plunder_button">Plunder</button>
-        
-    </form>   
+<div class="split left">
+    <h1>Otherdust Item Roller</h1>
+    <div class="container">
+        <form class="form-plunder" role="form" id="plunder_form">
+            <h2 class="form-plunder-heading">Select Plunder</h2>
+            <select id="plunder_ID" name="plunder_ID">
+                {% for ID in table_dict["plunder"].entries.keys() %}
+                    <option value="{{ ID }}">{{ ID }}: {{ table_dict["plunder"].examples[ID] }}</option>
+                {% endfor %}
+            </select>
+            <button class="btn btn-lg btn-primary btn-block" type="button" id="plunder_button">Plunder</button>
+            
+        </form>   
+    </div>
+    <br>
+    <div id="extra_buttons"></div>
+    <table id="plunder_result">{% include 'plunder.html' %}</table>>>>
 </div>
-<br>
-<div id="extra_buttons"></div>
-<table id="plunder_result">{% include 'plunder.html' %}</table>
+
+
+<div class="split right">
+    
+    {% set images = ["plunder.png","random_loot.png","weapon.png","armor.png","energy_weapon.png",
+    "common_items.png","uncommon_items.png","rare_items.png","equipment_wear.png"] %}
+    <div class="gallerycontainer" style="margin:10px; float:right; max-height:100%; max-width:100%;">
+        {% for image in images %}
+        <a class="thumbnail" href="#thumb">
+            <img src="{{ url_for('static', filename='images/'+image) }}" width="100px" height="66px" border="0" />
+            <span><img src="{{ url_for('static', filename='images/'+image) }}" /></span>
+        </a>
+        <br>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock %}

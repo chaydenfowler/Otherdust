@@ -5,8 +5,112 @@ body {
   padding:0;
 }
 
+html, body {
+  height: 100%;
+}
+
 * {
   box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+.gallerycontainer{
+position: relative;
+/*Add a height attribute and set to largest image's height to prevent overlaying*/
+}
+
+.thumbnail img{
+border: 1px solid white;
+margin: 0 5px 5px 0;
+}
+
+.thumbnail:hover{
+background-color: transparent;
+}
+
+.thumbnail:hover img{
+border: 1px solid blue;
+}
+
+.thumbnail span{ /*CSS for enlarged image*/
+position: absolute;
+background-color: lightyellow;
+padding: 5px;
+left: -1000px;
+border: 1px dashed gray;
+visibility: hidden;
+color: black;
+text-decoration: none;
+}
+
+.thumbnail span img{ /*CSS for enlarged image*/
+border-width: 0;
+padding: 2px;
+/* can add absolute height reference to change image size here */
+max-height: 90vh;
+max-width: 90vh;
+}
+
+.thumbnail:hover span{ /*CSS for enlarged image*/
+visibility: visible;
+float: left;
+top: 0px;
+/*left: 0px; /*position where enlarged image should offset horizontally */
+z-index: 50;
+}
+
+
+
+
+
+
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  /*overflow-x: hidden;*/
+  overflow-x: visible;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: #111;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: #111;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.right-align {
+  float: right;
+}
+
+/* Style the image inside the centered container, if needed */
+.centered img {
+  width: 150px;
+  border-radius: 50%;
 }
 
 .screen {
