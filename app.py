@@ -6,7 +6,8 @@ import jsonpickle
 
 
 app = Flask(__name__)
-app.secret_key = os.urandom(12).hex()
+#app.secret_key = os.urandom(12).hex() # doesn't work with multiple workers
+app.secret_key = '\x0e\x9b\xa9\x1d\xfe\xce\xca\xf2\xe0\x8b\xd2\xdf'
 
 table_dict = json_roller.make_tables() # global tables
 button_funcs = [#'plunder', 
