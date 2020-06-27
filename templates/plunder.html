@@ -1,14 +1,31 @@
 <!-- Takes in a PlunderTable object names plunder -->
 <!-- item.attr: name, chance, num_items, table_roll, condition-->
-<tr><th>Entry</th><th>No.</th><th>Name</th><th>Condition</th></tr>
-{% for entry_key in plunder.entries.keys() %}
-    <tr><td>{{ entry_key }}</td></tr>
-    {% for item in plunder.entries[entry_key].items %}
-        <tr>
-            <td></td>
-            <td>{{ item.num_items }}</td>
-            <td>{{ item.name }}</td>
-            <td>{{ item.condition }}</td>
-        </tr>
-    {% endfor %}
-{% endfor %}
+
+<table cellspacing="0" cellpadding="0" border="1" width="800px" style="border-collapse: collapse; table-layout: fixed;">
+    <table id="plunder_header" width="800px" style="table-layout: fixed;">
+        <tr><th>Entry</th><th>No.</th><th>Name</th><th>Condition</th></tr>
+    </table>
+    <div style="width:100vw; height:80vh; overflow:auto;">
+        
+        {% for entry_key in plunder.entries.keys() %}
+            <table id="plunder_entries" width="800px" border="1" style="border-collapse: collapse; table-layout: fixed;" >
+            {% set len = plunder.entries[entry_key].items|length %}
+            {% for i in range(len) %}
+                {% set item = plunder.entries[entry_key].items[i] %}
+                <tr>
+                {% if i == 0 %}
+                    <td rowspan="{{len}}">{{ entry_key }}</td>
+                {% endif %}
+
+                <td>{{ item.num_items }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.condition }}</td>
+                </tr>
+
+            {% endfor %}
+            </table>
+        {% endfor %}
+        
+        <td>>>></td>
+    </div>
+</table>

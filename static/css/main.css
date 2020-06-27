@@ -1,23 +1,19 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
 body {
   background-color:#000;
   margin:0;
-  overflow:hidden;
   padding:0;
-}
-
-html, body {
   height: 100%;
+  width: 100%;
 }
 
 * {
   box-sizing: border-box;
 }
-
-
-
-
-
-
 
 
 .gallerycontainer{
@@ -85,13 +81,13 @@ z-index: 50;
 /* Control the left side */
 .left {
   left: 0;
-  background-color: #111;
+  /*background-color: #111;*/
 }
 
 /* Control the right side */
 .right {
   right: 0;
-  background-color: #111;
+  /*background-color: #111;*/
 }
 
 /* If you want the content centered horizontally and vertically */
@@ -124,8 +120,6 @@ z-index: 50;
   overflow:hidden;
   padding:10vmin;
   width:100vw;
-
-  overflow: scroll;
 }
 
 .screen:before {
