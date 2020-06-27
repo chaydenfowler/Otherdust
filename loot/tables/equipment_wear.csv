@@ -1,0 +1,8 @@
+,1d20,Equipment Wear
+0,1,Perfect No penalty to use
+1,2-10,Worn No penalty to use
+2,11-14,"Light Damage -1 to hit, damage, -1 to skill checks using the item"
+3,15-16,"Moderate Damage -2 to hit, damage, -1 to skill checks using the item, 2 in 10 chance to fail."
+4,17-18,"Heavy Damage -3 to hit, damage, -2 to skill checks using the item, 2 in 6 chance of failing"
+5,19,Broken The device is inoperable or unusable.
+6,20,Ruined The device is beyond repair and fit only for salvage.

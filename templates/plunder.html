@@ -1,0 +1,14 @@
+<!-- Takes in a PlunderTable object names plunder -->
+<!-- item.attr: name, chance, num_items, table_roll, condition-->
+<tr><th>Entry</th><th>No.</th><th>Name</th><th>Condition</th></tr>
+{% for entry_key in plunder.entries.keys() %}
+    <tr><td>{{ entry_key }}</td></tr>
+    {% for item in plunder.entries[entry_key].items %}
+        <tr>
+            <td></td>
+            <td>{{ item.num_items }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.condition }}</td>
+        </tr>
+    {% endfor %}
+{% endfor %}

@@ -1,0 +1,8 @@
+,Roll,Random Loot
+0,1-5,Nothing
+1,6-14,Common Item
+2,15-19,Two Common Items
+3,20-26,Uncommon Item
+4,27-29,Two Uncommon Items
+5,30-34,Rare Item
+6,35+,Two Rare Items

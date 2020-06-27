@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function capitalize(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+        function make_button(button_url, button_id){
+            var element = document.createElement("button");
+            element.setAttribute("class", "btn btn-lg btn-primary btn-block");
+            element.setAttribute("id", button_id+"_button");
+            element.innerHTML = capitalize(button_id);
+            var div = document.getElementById("extra_buttons");
+            div.appendChild(element);
+
+            $("#"+button_id+"_button").click(function(){
+                $.ajax({
+                    //url: "/"+button_url,
+                    url: button_url,
+                    data: null,
+                    type: 'POST'
+                })
+                .done(function(response){
+                    document.getElementById("plunder_result").innerHTML = response
+                })
+                .fail(function(error){
+                    console.log(error)
+                });
+            });
+        };
+        $(function create_buttons(){
+            {% for button_func in button_funcs %}
+                make_button('{{ url_for(button_func) }}', '{{ button_func }}');
+            {% endfor %}
+        })
+    </script>
+    <script>
+        $(function(){
+            $('#plunder_button').click(function(){
+                $.ajax({
+                    //url: '/plunder',
+                    url: '{{ url_for('plunder') }}',
+                    data: $('#plunder_form').serialize(),
+                    type: 'POST'
+                })
+                .done(function(response){
+                    document.getElementById("plunder_result").innerHTML = response
+                })
+                .fail(function(error){
+                    console.log(error)
+                });
+            });
+        });
+    </script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
+
+{% block title %}
+Otherdust Item Roller
+{% endblock %}
+
+{% block body %}
+
+<h1>Otherdust Item Roller</h1>
+<div class="container">
+    <form class="form-plunder" role="form" id="plunder_form">
+        <h2 class="form-plunder-heading">Select Plunder</h2>
+        <select id="plunder_ID" name="plunder_ID">
+            {% for ID in table_dict["plunder"].entries.keys() %}
+                <option value="{{ ID }}">{{ ID }}: {{ table_dict["plunder"].examples[ID] }}</option>
+            {% endfor %}
+        </select>
+        <button class="btn btn-lg btn-primary btn-block" type="button" id="plunder_button">Plunder</button>
+        
+    </form>   
+</div>
+<br>
+<div id="extra_buttons"></div>
+<table id="plunder_result">{% include 'plunder.html' %}</table>
+
+{% endblock %}

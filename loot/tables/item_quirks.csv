@@ -1,0 +1,7 @@
+,1d100,Item Quirks
+0,1-10,Busted. The item is in Broken condition.
+1,11-60,Damaged. Roll on the Condition chart.
+2,61-70,"Shoddy. The first time this item loses a level of condition, it becomes Destroyed."
+3,71-90,Enigmatic. The item is strangely-shaped and must be puzzled out.
+4,91-98,"Tough. Weapons are damaged only on a 1, armor only on a 20, and gear only on a natural 2."
+5,99-00,Indestructible. The item becomes TL5 and impervious to all but intentional damage.
